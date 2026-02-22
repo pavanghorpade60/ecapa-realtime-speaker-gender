@@ -1,6 +1,6 @@
-# 🎤 Real-Time Speaker & Gender Identification using ECAPA-TDNN
+#  Real-Time Speaker & Gender Identification using ECAPA-TDNN
 
-## 🚀 About This Project
+##  About This Project
 
 This project is a real-time speaker and gender identification system built using the ECAPA-TDNN deep learning architecture.  
 
@@ -12,7 +12,7 @@ The entire system is built using PyTorch and designed to be modular, efficient, 
 
 ---
 
-## ✨ Why I Built This
+##  Why I Built This
 
 I wanted to explore practical audio AI systems beyond theory.  
 Instead of just training a model, I implemented a complete real-time pipeline that:
@@ -30,7 +30,7 @@ This project helped me understand:
 
 ---
 
-## 🧠 How It Works
+##  How It Works
 
 ```mermaid
 flowchart LR
@@ -44,7 +44,7 @@ flowchart LR
     G --> I[Predicted Gender]
 ```
 
-### 🔎 Step-by-Step Pipeline
+###  Step-by-Step Pipeline
 
 1. The microphone captures live audio.
 2. The audio is cleaned and normalized.
@@ -68,7 +68,7 @@ flowchart LR
 
 ---
 
-## 📂 Project Structure
+##  Project Structure
 
 ```
 voice-gender-classifier/
@@ -82,7 +82,7 @@ voice-gender-classifier/
 
 ---
 
-## 💻 Installation
+##  Installation
 
 ```bash
 git clone https://github.com/pavanghorpade60/ecapa-realtime-speaker-gender.git
@@ -92,7 +92,7 @@ pip install -r requirements.txt
 
 ---
 
-## ▶️ Run the System
+##  Run the System
 
 ```bash
 python test.py
@@ -102,7 +102,7 @@ Speak into your microphone and view predictions in real time.
 
 ---
 
-## 📊 Results
+##  Results
 
 - Real-time gender prediction with stable accuracy  
 - Speaker recognition using learned embeddings  
@@ -110,7 +110,7 @@ Speak into your microphone and view predictions in real time.
 
 ---
 
-## 🔮 Future Improvements
+##  Future Improvements
 
 - Unknown speaker detection
 - Larger multi-speaker dataset
@@ -120,13 +120,9 @@ Speak into your microphone and view predictions in real time.
 
 ---
 
-## 👨‍💻 Author
+##  Author
 
 **Pavan Ghorpade**  
 Machine Learning & AI Enthusiast  
 
 This project is part of my journey into building practical, real-world AI systems.
-
----
-
-⭐ If you found this interesting, feel free to star the repository!
