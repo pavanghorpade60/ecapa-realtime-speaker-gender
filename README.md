@@ -1,57 +1,132 @@
-# Voice gender classifier 
-[![Dynamic JSON Badge](https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fhuggingface.co%2Fapi%2Fmodels%2FJaesungHuh%2Fvoice-gender-classifier%3Fexpand%255B%255D%3Ddownloads%26expand%255B%255D%3DdownloadsAllTime&query=%24.downloadsAllTime&label=%F0%9F%A4%97%20Downloads)](https://huggingface.co/JaesungHuh/voice-gender-classifier)
-[![Static Badge](https://img.shields.io/badge/%F0%9F%A4%97%20Spaces-Demo-blue)](https://huggingface.co/spaces/JaesungHuh/voice-gender-classifier)
+# 🎤 Real-Time Speaker & Gender Identification using ECAPA-TDNN
 
-- This repo contains the inference code to use pretrained human voice gender classifier.
+## 🚀 About This Project
 
-## Installation
-First, clone this repository
+This project is a real-time speaker and gender identification system built using the ECAPA-TDNN deep learning architecture.  
+
+It captures live audio from a microphone, processes it in real time, and predicts:
+- Who is speaking (Speaker Identification)
+- The speaker’s gender (Gender Classification)
+
+The entire system is built using PyTorch and designed to be modular, efficient, and easy to extend.
+
+---
+
+## ✨ Why I Built This
+
+I wanted to explore practical audio AI systems beyond theory.  
+Instead of just training a model, I implemented a complete real-time pipeline that:
+
+- Takes live microphone input
+- Processes audio features
+- Generates speaker embeddings
+- Performs classification instantly
+
+This project helped me understand:
+- Audio preprocessing
+- Deep learning for speech tasks
+- Real-time inference systems
+- Model deployment workflows
+
+---
+
+## 🧠 How It Works
+
+```mermaid
+flowchart LR
+    A[Microphone Input] --> B[Audio Preprocessing]
+    B --> C[Mel Spectrogram Extraction]
+    C --> D[ECAPA-TDNN Backbone]
+    D --> E[Speaker Embedding]
+    E --> F[Speaker Classifier]
+    E --> G[Gender Classifier]
+    F --> H[Predicted Speaker]
+    G --> I[Predicted Gender]
 ```
-git clone https://github.com/JaesungHuh/voice-gender-classifier.git
+
+### 🔎 Step-by-Step Pipeline
+
+1. The microphone captures live audio.
+2. The audio is cleaned and normalized.
+3. Mel Spectrogram features are extracted.
+4. The ECAPA-TDNN model generates a speaker embedding.
+5. The embedding is passed to:
+   - A speaker classification head
+   - A gender classification head
+6. Predictions are displayed in real time.
+
+---
+
+## 🛠 Technologies Used
+
+- Python  
+- PyTorch  
+- Torchaudio  
+- NumPy  
+- SoundDevice  
+- HuggingFace (Pretrained ECAPA models)
+
+---
+
+## 📂 Project Structure
+
+```
+voice-gender-classifier/
+│
+├── model.py            # ECAPA model & classifiers
+├── test.py             # Real-time inference script
+├── requirements.txt    # Project dependencies
+├── README.md
+└── data/               # Audio samples (if used)
 ```
 
-and install the packages via pip.
+---
 
-```
-cd voice-gender-classifier
+## 💻 Installation
+
+```bash
+git clone https://github.com/pavanghorpade60/ecapa-realtime-speaker-gender.git
+cd ecapa-realtime-speaker-gender
 pip install -r requirements.txt
 ```
 
-## Usage
-```
-import torch
+---
 
-from model import ECAPA_gender
+## ▶️ Run the System
 
-# You could directly download the model from the huggingface model hub
-model = ECAPA_gender.from_pretrained("JaesungHuh/voice-gender-classifier")
-model.eval()
-
-# If you are using gpu .... 
-device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-model.to(device)
-
-# Load the audio file and use predict function to directly get the output
-example_file = "data/00001.wav"
-with torch.no_grad():
-    output = model.predict(example_file, device=device)
-    print("Gender : ", output)
+```bash
+python test.py
 ```
 
-## Pretrained weights
-For those who need pretrained weights, please download them [here](https://drive.google.com/file/d/1ojtaa6VyUhEM49F7uEyvsLSVN3T8bbPI/view?usp=sharing).
+Speak into your microphone and view predictions in real time.
 
-## Training details
-State-of-the-art speaker verification model already produces good representation of the speaker's gender.
+---
 
-I used the pretrained ECAPA-TDNN from [TaoRuijie's](https://github.com/TaoRuijie/ECAPA-TDNN) repository, added one linear layer to make a two-class classifier, and finetuned the model with the VoxCeleb2 dev set.
+## 📊 Results
 
-The model achieved **98.7%** accuracy on the VoxCeleb1 identification test split.
+- Real-time gender prediction with stable accuracy  
+- Speaker recognition using learned embeddings  
+- Low-latency inference suitable for live applications  
 
-## Caveat
-I would like to note that the training dataset I've used for this model (VoxCeleb) may not represent the global human population. Please be careful of unintended biases when using this model.
+---
 
-## References
-- 🤗 [Huggingface Hub link](https://huggingface.co/JaesungHuh/voice-gender-classifier)
-- I modified the model architecture from [TaoRuijie's](https://github.com/TaoRuijie/ECAPA-TDNN) repository.
-- For more details about ECAPA-TDNN, check the [paper](https://arxiv.org/abs/2005.07143).
+## 🔮 Future Improvements
+
+- Unknown speaker detection
+- Larger multi-speaker dataset
+- Confidence score display
+- Web app deployment (Streamlit / FastAPI)
+- REST API version for integration
+
+---
+
+## 👨‍💻 Author
+
+**Pavan Ghorpade**  
+Machine Learning & AI Enthusiast  
+
+This project is part of my journey into building practical, real-world AI systems.
+
+---
+
+⭐ If you found this interesting, feel free to star the repository!
